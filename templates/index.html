@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multilingual Support Prototype</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Multilingual Support Prototype</h1>
+        <form id="translate-form">
+            <textarea name="text" id="text" rows="4" cols="50" placeholder="Enter text to translate..."></textarea><br>
+            <select id="lang">
+                <option value="en_to_fr">English to French</option>
+                <option value="fr_to_en">French to English</option>
+                <option value="en_to_es">English to Spanish</option>
+                <option value="es_to_en">Spanish to English</option>
+                <option value="en_to_de">English to German</option>
+                <option value="de_to_en">German to English</option>
+            </select><br>
+            <button type="submit">Translate</button>
+        </form>
+        <h2>Translated Text:</h2>
+        <div id="translated-text"></div>
+    </div>
+    <script>
+        document.getElementById('translate-form').onsubmit = async function(event) {
+            event.preventDefault();
+            const text = document.getElementById('text').value;
+            const lang = document.getElementById('lang').value;
+            const response = await fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ text: text, lang: lang })
+            });
+            const data = await response.json();
+            document.getElementById('translated-text').innerText = data.translated_text;
+        }
+    </script>
+</body>
+</html>
