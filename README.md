@@ -1,25 +1,25 @@
 # Multilingual Support Prototype
 
 ## Overview
-This project is a prototype of a multilingual support system that leverages pre-trained machine translation models. The prototype demonstrates the basic functionality of text translation between multiple languages and serves as a foundational step toward a more comprehensive multilingual support system.
+This project is a multilingual assistance system prototype based on pre-trained machine translation models. The prototype exhibits the fundamental capabilities of text translation across various languages and serves as a starting point for a more extensive multilingual support system.
 
 ## Objectives
 
 ### Main Goal
-- Integrate pre-trained machine translation models to provide accurate translations between selected languages.
+- Integrate pre-trained machine translation models to give precise translations across specific languages.
 
 ### Secondary Goals
-- Develop a user-friendly interface for text input and display translations.
-- Showcase the practical application of NLP in real-world systems.
+- Create a user-friendly interface for text entry and display translations.
+- Demonstrate the practical use of NLP in real-world systems.
 
 ## Minimum Requirements
 
-- **Machine Translation Integration**: Utilize pre-trained models from libraries like Hugging Face Transformers to translate text between selected languages.
-- **User Interface Development**: Create a basic web interface for inputting text and displaying its translation.
+- **Machine Translation Integration**: Use pre-trained models from libraries such as Hugging Face Transformers to translate text between certain languages.
+- **User Interface Development**:Create a simple web interface for entering text and viewing its translation.
 
 ## Optional Enhancements
-- **Additional Languages**: Add support for more languages by utilizing additional pre-trained models.
-- **Real-Time Translation Features**: Outline potential features for real-time translation applications as future project expansions.
+- **Additional Languages**: Increase language support by using extra pre-trained models.
+- **Real-Time Translation Features**:Outline possible capabilities for real-time translation applications as future project extensions.
 
 ## Tools & Techniques
 - **Backend**: Python, Flask
@@ -30,7 +30,6 @@ This project is a prototype of a multilingual support system that leverages pre-
 
 1. **Clone the repository**:
     ```bash
-    git clone <repository_url>
     cd multilingual_support
     ```
 
@@ -85,28 +84,23 @@ This project is a prototype of a multilingual support system that leverages pre-
 ## Code Explanation
 
 ### `app.py`
-- **Imports**: Imports necessary modules including Flask for web framework and pipeline from Hugging Face for translation models.
-- **Initialization**: Initializes translation pipelines for different language pairs using pre-trained models from Hugging Face.
+- **Imports**: Imports the essential modules, including Flask for the web framework and Hugging Face's pipeline for translation models.
+- **Initialization**: Initializes translation pipelines for several language pairs with pre-trained Hugging Face models.
 - **Routes**:
-  - **GET/POST `/`**: Renders the main page and handles translation requests. Based on the selected language pair, the appropriate translation pipeline is used to translate the input text.
+  - **GET/POST `/`**: It renders the main page and handles translation requests. The input text is translated using the appropriate translation pipeline based on the language pair specified.
 
 ### `templates/index.html`
-- Provides a simple HTML form for text input and language selection.
-- Uses JavaScript to handle form submission, send a request to the backend, and display the translated text.
+- Creates a simple HTML form for text input and language selection.
+- JavaScript is used to process form submissions, send requests to the backend, and display translated content.
 
 ### `static/style.css`
-- Basic styling for the HTML page to make it user-friendly.
+- Simple styling for the HTML page to make it more user-friendly.
 
-## Future Work
+## Additional Files
 
-- Add more language pairs.
-- Implement real-time translation features.
-- Enhance the UI for better user experience.
+- **`init.py`**: Initializes the Flask application and registers blueprints for routing.
+- **`route.py`**: Defines routes and request handling logic for the Flask application.
+- **`run.py`**: Entry point to run the Flask application.
 
-## Acknowledgements
-- [Hugging Face](https://huggingface.co/) for providing state-of-the-art NLP models.
-- [Flask](https://flask.palletsprojects.com/) for the web framework.
-
-<!-- ## License
-This project is licensed under the MIT License. See the LICENSE file for details. -->
-
+## Note
+The logic is currently encapsulated in `app.py` for simplicity. The additional files (`init.py`, `route.py`, `run.py`) are included to support future scalability and best practices in modular design.
